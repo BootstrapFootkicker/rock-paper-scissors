@@ -1,4 +1,23 @@
-let score = 0
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+const results = document.querySelector('#results');
+const playerScore = document.querySelector('#player-wins');
+const computerScore = document.querySelector('#computer-wins');
+let playersWins = 0;
+let computerWins = 0;
+
+
+function refreshScore() {
+    playerScore.innerHTML = `Player Wins = ${playersWins}`;
+    computerScore.innerHTML = `Computer Wins = ${computerWins}`;
+    if (playersWins === 5) {
+        alert("Player Wins!");
+    }
+    if (computerWins === 5) {
+        alert("Computer Wins!");
+    }
+}
 
 function getComputerChoice() {
 
@@ -11,64 +30,61 @@ function playRound(playerSelection, computerSelection) {
 
     computerSelection = computerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
+        results.textContent = `Draw! You both chose ${playerSelection}`
         console.log(`Draw! You both chose ${playerSelection}`);
         return "D";
     } else if (playerSelection === "rock") {
         if (computerSelection === "scissors") {
-            score += 1;
+            playersWins += 1;
+            refreshScore();
+            results.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
             console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
             return "W";
         } else {
+            computerWins += 1;
+            refreshScore();
+            results.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`
             console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
             return "L";
         }
     } else if (playerSelection === "scissors") {
         if (computerSelection === "paper") {
-            score += 1;
+            playersWins += 1;
+            refreshScore();
+            results.textContent = `You Win! ${playerSelection} beats ${computerSelection}`
             console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
             return "W";
         } else {
+            computerWins += 1;
+            refreshScore();
+            results.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`
             console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
             return "L";
         }
     } else if (playerSelection === "paper") {
         if (computerSelection === "rock") {
-            score += 1;
+            playersWins += 1;
+            refreshScore();
+            results.textContent = `You Win! ${playerSelection} beats ${computerSelection}`
             console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
             return "W";
         } else {
+            computerWins += 1;
+            refreshScore();
+            results.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
             console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
             return "L";
         }
 
     } else {
+
         console.log(`${playerSelection} is an invalid input`);
 
     }
 
 }
 
-function game() {
 
-    for (let i = 0; i <= 4; i++) {
-        let playerChoice = prompt("Rock, Paper, or Scissors?")
-        let roundResults = playRound(playerChoice.toLowerCase(), getComputerChoice());
-
-        if (roundResults === "D") {
-            playerChoice = prompt("Rock, Paper, or Scissors?")
-            roundResults = playRound(playerChoice.toLowerCase(), getComputerChoice());
-
-        }
-
-    }
-    
-    if (score >= 3) {
-        console.log(`You win the game! You have ${score} wins and ${5 - score} losses!`)
-    } else {
-        console.log(`You Lose the game! You have ${score} wins and ${5 - score} losses!`)
-    }
-
-}
-
-
-game();
+rockBtn.addEventListener('click', (event) => playRound('rock', getComputerChoice()));
+paperBtn.addEventListener('click', (event) => playRound('paper', getComputerChoice()));
+scissorsBtn.addEventListener('click', (event) => playRound('scissors', getComputerChoice()));
