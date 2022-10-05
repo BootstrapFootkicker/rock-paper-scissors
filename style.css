@@ -1,21 +1,30 @@
-.main-container {
+body {
+    margin: 0;
     display: flex;
     flex-direction: column;
-    padding: 10px
-
+    color: #E4F1FE;
+    min-height: 100vh;
+    min-width: 100vh;;
 }
 
-.header{
+.header {
+    background-color: #22313F;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+
+
 }
 
 .score-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 350px;
+    margin-bottom: 350px;
+    background-color: #34495E;
+    padding: 20px;
+
 
 }
 
@@ -37,7 +46,7 @@
 }
 
 
-button{
+button {
     width: 70px;
     padding: 2px;
 }
