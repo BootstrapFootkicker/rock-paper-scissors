@@ -1,10 +1,20 @@
 body {
+    font-family: Papyrus, fantasy;
+
     margin: 0;
     display: flex;
     flex-direction: column;
     color: #E4F1FE;
     min-height: 100vh;
     min-width: 100vh;;
+    background-color: #8DC6FF;
+}
+
+
+.header-container {
+    border-style: solid;
+    border-color: #E4F1FE;
+
 }
 
 .header {
@@ -12,7 +22,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 60px 20px 20px;
+    font-size: 45px;
+    text-align: center;
 
 
 }
@@ -21,10 +33,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 350px;
-    background-color: #34495E;
+    background-color: #22313F;;
     padding: 20px;
 
+
+}
+
+.results-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 50px;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    min-height: 80px;
 
 }
 
@@ -37,16 +60,31 @@ body {
 
 }
 
-.results-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+
+button {
+
+    padding: 2px;
+    font-size: 25px;
+}
+
+#rock, #paper, #scissors {
+    height: 100px;
+    width: 100px;
+}
+
+#rock {
+    background-image: url("images/rocks.png");
+    background-size: cover;
+
 
 }
 
+#paper {
+    background-image: url("images/paper.png");
+    background-size: cover;
+}
 
-button {
-    width: 70px;
-    padding: 2px;
+#scissors {
+    background-image: url("images/scissors.png");
+    background-size: cover;
 }
